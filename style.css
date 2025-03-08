@@ -24,13 +24,100 @@ body {
     font-family: 'ANDONG264TTF';
 }
 
+#login-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-in-out;
+    z-index: 100;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#login-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#login-form input[type="text"] {
+    font-family: 'ANDONG264TTF';
+    background: none;
+    border: none;
+    border-bottom: 1.5px solid white;
+    outline: none;
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    width: 250px;
+}
+
+.submit-btn {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    overflow: visible;
+}
+
+.scroll-arrow {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(-45deg);
+    animation: arrow-wave 1s infinite alternate;
+    margin-left: 2px;
+    transition: transform 0.2s ease-in-out, scale 0.2s ease-in-out;
+}
+
+.scroll-arrow:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.scroll-arrow:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.scroll-arrow:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes arrow-wave {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.submit-btn:hover .scroll-arrow {
+    transform: rotate(-45deg) scale(1.3);
+}
+
 .book {
     position: relative;
     width: 70vw;
     height: 80vh;
     display: flex;
     perspective: 1000px;
-    /* 3D 효과 */
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.5);
     border: 2px solid #ebebeb;
@@ -102,6 +189,32 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     transform: rotateY(-2deg);
+}
+
+.right-content {
+    width: 100%;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #555555;
+    margin-top: 20px;
+    transform: skewX(-15deg);
+}
+
+#toDoList {
+    display: inline-block;
+    margin-left: 40px;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+#userNick {
+    display: inline-block;
+    margin-right: 40px;
+    font-size: 23px;
 }
 
 .bg-animation {
