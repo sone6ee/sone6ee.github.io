@@ -12,6 +12,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     overflow: hidden;
@@ -56,7 +63,7 @@ body {
     border-bottom: 1.5px solid white;
     outline: none;
     color: white;
-    font-size: 25px;
+    font-size: calc(0.7vw + 0.7vh);
     text-align: center;
     width: 250px;
 }
@@ -132,7 +139,7 @@ body {
     height: 100%;
     border: 2px solid #fff;
     display: flex;
-    padding: 20px;
+    padding: 2vw;
     box-sizing: border-box;
     border-radius: 5px;
 }
@@ -151,7 +158,7 @@ body {
 
 #day {
     font-family: 'SEBANG_Gothic_Bold';
-    font-size: 30px;
+    font-size: calc(0.8vw + 0.8vh);
     color: white;
     text-shadow: 2px 2px 10px rgba(110, 110, 150, 0.7);
     margin: 5px 0;
@@ -159,7 +166,7 @@ body {
 
 #clock {
     font-family: 'SEBANG_Gothic_Bold';
-    font-size: 65px;
+    font-size: calc(1.7vw + 1.7vh);
     color: white;
     text-shadow: 2px 2px 10px rgba(110, 110, 150, 0.5);
     transform: skewX(-15deg);
@@ -175,12 +182,12 @@ body {
 }
 
 #weather i {
-    font-size: 30px;
+    font-size: calc(0.8vw + 0.8vh);
     margin-right: 5px;
 }
 
 #weather span {
-    font-size: 20px;
+    font-size: calc(0.5vw + 0.5vh);
     margin-right: 10px;
 }
 
@@ -193,6 +200,9 @@ body {
 
 .right-content {
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .top {
@@ -208,20 +218,20 @@ body {
     display: inline-block;
     margin-left: 40px;
     font-weight: bold;
-    font-size: 35px;
+    font-size: calc(0.9vw + 0.9vh);
 }
 
 #userNick {
     display: inline-block;
     margin-right: 40px;
-    font-size: 23px;
+    font-size: calc(0.6vw + 0.6vh);
 }
 
 .center {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 70px 0;
+    margin: calc(1.85vw + 1.85vh) 0;
     width: 100%;
 }
 
@@ -243,9 +253,9 @@ body {
 }
 
 #todo-form::before {
-    content: "✏️"; 
-    font-size: 20px; 
-    color: #555555; 
+    content: "✏️";
+    font-size: calc(0.6vw + 0.6vh);
+    color: #555555;
     margin-right: 10px;
 }
 
@@ -255,11 +265,97 @@ body {
     border: none;
     outline: none;
     color: #555555;
-    font-size: 20px;
+    font-size: calc(0.5vw + 0.5vh);
     text-align: left;
     flex: 1;
     min-width: 0;
 }
+
+#todo-list {
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: calc(0.3vw + 0.3vh);
+    font-size: calc(0.5vw + 0.5vh);
+    padding: 8px;
+    color: #555555;
+}
+
+.todo-checkbox {
+    width: calc(0.7vw);
+    height: calc(0.7vw);
+    cursor: pointer;
+    appearance: none;
+    border: 2px solid #8A856D;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.todo-checkbox:checked {
+    background-color: #5E6472;
+    border: none;
+    position: relative;
+}
+
+.todo-checkbox:checked::after {
+    content: "✔";
+    font-size: calc(0.35vw + 0.35vh);
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.todo-text {
+    flex-grow: 1;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.todo-text.checked {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.todo-delete {
+    font-family: 'NanumSquareRound';
+    background: none;
+    border: none;
+    color: #B0A999;
+    font-size: calc(0.35vw + 0.35vh);
+    cursor: pointer;
+
+}
+
+#todo-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#todo-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+#todo-list::-webkit-scrollbar-thumb {
+    background-color: #8A856D;
+    border-radius: 4px;
+}
+
+#todo-list::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+
 
 .bg-animation {
     position: fixed;
